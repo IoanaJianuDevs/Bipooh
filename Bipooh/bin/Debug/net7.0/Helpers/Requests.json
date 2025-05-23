@@ -1,0 +1,84 @@
+//ADD CATALOGUE
+curl -X 'POST' \
+  'https://localhost:7293/api/Catalogue' \
+  -H 'accept: text/plain' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 1,
+  "dscrp": "Nota matematica",
+  "grd": 9,
+  "nbAbsences": 0,
+  "nbAttendances": 8,
+  "subjects": [
+    {
+      "id": 1,
+      "dscrp": "Matematica",
+      "homework": true,
+      "inSchedule": true,
+      "catalogueID": 1
+    }
+  ],
+  "students": [
+    {
+        {
+    "id": 1,
+    "lastName": "Ghinea",
+    "firstName": "Elena",
+    "catalogueID": 1
+        } 
+    }
+  ]
+}'
+
+//RESPONSE
+{
+  "id": 1,
+  "dscrp": "Nota matematica",
+  "grd": 9,
+  "nbAbsences": 0,
+  "nbAttendances": 8,
+  "subjects": [
+    {
+      "id": 1,
+      "dscrp": "Matematica",
+      "homework": true,
+      "inSchedule": true,
+      "catalogueID": 1
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "lastName": "Ghinea",
+      "firstName": "Elena",
+      "catalogueID": 1
+    }
+  ]
+}
+
+
+//GET CATALOGUE
+curl -X 'GET' \ 'https://localhost:7293/api/Catalogue/Ghinea' \ -H 'accept: text/plain'
+
+//RESPONSE
+[
+  {
+    "id": 1,
+    "dscrp": "Nota matematica",
+    "grd": 9,
+    "nbAbsences": 0,
+    "nbAttendances": 8,
+    "subjects": null,
+    "students": [
+      {
+        "id": 1,
+        "lastName": "Ghinea",
+        "firstName": "Elena",
+        "catalogueID": 1
+      }
+    ]
+  }
+]
+
+
+curl -X 'POST' \ 'https://localhost:7293/api/Students' \ -H 'accept: text/plain' \ -H 'Content-Type: application/json' \ -d '{ "id": 1, "lastName": "Jianu", "firstName": "Ioana" }' } curl -X 'GET' \ 'https://localhost:7293/api/Students/1' \ -H 'accept: text/plain' curl -X 'POST' \ 'https://localhost:7293/api/Subjects' \ -H 'accept: text/plain' \ -H 'Content-Type: application/json' \ -d '{ "id": 1, "dscrp": "Matematica", "homework": true, "inSchedule": true }'

@@ -1,0 +1,10 @@
+CREATE TABLE Subject (
+    Id BIGINT NOT NULL PRIMARY KEY,
+    StudentId BIGINT NOT NULL,
+    DSCRP NVARCHAR(255) DEFAULT 'Description',
+    GRD DECIMAL(18, 2) NULL,
+    NbAbsences DECIMAL(18, 2) NULL,
+    NbAttendances DECIMAL(18, 2) NULL,
+    Homework BIT NOT NULL DEFAULT 0,
+    InSchedule BIT NOT NULL DEFAULT 0
+);
